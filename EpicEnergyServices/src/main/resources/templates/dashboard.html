@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="it" xmlns:th="http://www.thymeleaf.org">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet" >
+ <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" ></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js" integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT" crossorigin="anonymous"></script>	
+<head>
+<meta charset="ISO-8859-1">
+<title>Dashboard</title>
+<style>
+html, body {
+	display: grid;
+	height: 100%;
+	width: 100%;
+	place-items: center;
+		background: #7EB2DD;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to top, #FFE8D4, #7EB2DD);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to top, #FFE8D4, #7EB2DD); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+
+
+::selection {
+	background: #1a75ff;
+	color: #fff;
+}
+
+.wrapper {
+	overflow: hidden;
+	max-width: 390px;
+	background: #fff;
+	padding: 30px;
+	border-radius: 15px;
+	box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.1);
+}
+
+.wrapper .title-text {
+	display: flex;
+	width: 200%;
+}
+
+.wrapper .title {
+	width: 50%;
+	font-size: 35px;
+	font-weight: 600;
+	text-align: center;
+	transition: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.wrapper .form-container {
+	width: 100%;
+	overflow: hidden;
+}
+
+.form-container .form-inner {
+	display: flex;
+	width: 200%;
+}
+
+.form-container .form-inner form {
+	width: 50%;
+	transition: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.form-inner form .field {
+	height: 50px;
+	width: 100%;
+	margin-top: 20px;
+}
+
+.form-inner form .field input {
+	height: 100%;
+	width: 100%;
+	outline: none;
+	padding-left: 15px;
+	border-radius: 15px;
+	border: 1px solid lightgrey;
+	border-bottom-width: 2px;
+	font-size: 17px;
+	transition: all 0.3s ease;
+}
+
+.form-inner form .field input:focus {
+	border-color: #1a75ff;
+	/* box-shadow: inset 0 0 3px #fb6aae; */
+}
+
+.form-inner form .field input::placeholder {
+	color: #999;
+	transition: all 0.3s ease;
+}
+
+form .field input:focus::placeholder {
+	color: #1a75ff;
+}
+
+.form-inner form .pass-link {
+	margin-top: 5px;
+}
+form .btn {
+	height: 50px;
+	width: 100%;
+	border-radius: 15px;
+	position: relative;
+	overflow: hidden;
+}
+
+form .btn .btn-layer {
+	height: 100%;
+	width: 300%;
+	position: absolute;
+	left: -100%;
+	background:#7EB2DD;
+	border-radius: 15px;
+	transition: all 0.4s ease;;
+}
+
+form .btn:hover .btn-layer {
+	left: 0;
+}
+label{
+color:white;
+}
+h2{
+color:white
+}
+.container {
+    padding: 20px;
+    align-items: center;
+    display:flex;
+    width:100% !important;
+    height:100% !important;
+    justify-content:center;
+
+}
+.btn btn-secondary dropdown-toggle{
+background-color:  	#7EB2DD;
+}
+</style>
+</head>
+<body>
+<div class=container>
+<div class="card" style="width: 18rem; margin-right:270px">
+  <div class="card-body">
+    <h5 class="card-title">Clienti per Range di Fatturato Annuale</h5>
+    <div class="btn-group dropend" style="margin-bottom:5px">
+  <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" style="width:160px;background-color:#7EB2DD" th:text="'Range basso: ' + ${rangebasso.size}" data-bs-toggle="dropdown" aria-expanded="false" >
+    </a>
+
+  <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink"  >
+ 	<li> <div th:each="cliente:${rangebasso}" style="margin-bottom:3px">
+    <a class="dropdown-item" th:href="@{/clientectrl/clientedetails/{id}(id=${cliente.id})}"  th:text="${cliente.ragioneSociale}"></a>
+    </div>
+  
+    </li>  
+  </ul>
+</div>
+<div class="btn-group dropend" style="margin-bottom:5px">
+  <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" style="width:160px;background-color:#7EB2DD" th:text="'Range medio: ' + ${rangemedio.size}" data-bs-toggle="dropdown" aria-expanded="false" >
+    </a>
+
+  <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink"  >
+ 	<li> <div th:each="cliente:${rangemedio}">
+    <a class="dropdown-item" th:href="@{/clientectrl/clientedetails/{id}(id=${cliente.id})}" th:text="${cliente.ragioneSociale}"></a>
+    </div>
+  
+    </li>  
+  </ul>
+</div>
+<div class="btn-group dropend" style="margin-bottom:5px">
+  <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" style="width:160px;background-color:#7EB2DD" th:text="'Range alto: ' + ${rangealto.size}" data-bs-toggle="dropdown" aria-expanded="false" >
+    </a>
+
+  <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink" style="margin-bottom:3px" >
+ 	<li> <div th:each="cliente:${rangealto}" style="margin-bottom:3px">
+    <a class="dropdown-item" th:href="@{/clientectrl/clientedetails/{id}(id=${cliente.id})}" th:text="${cliente.ragioneSociale}"></a>
+    </div>
+  
+    </li>  
+  </ul>
+   
+  </div>
+</div>
+
+</div>
+<div class="card" style="width: 14rem">
+  <div class="card-body">
+    <h5 class="card-title">Clienti per regione</h5>
+     <div class="btn-group dropend" th:each="map:${regioni}" style="margin-bottom:3px">
+  <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" style="width:180px;background-color:#7EB2DD" th:text="${map.key}" data-bs-toggle="dropdown" aria-expanded="false" >
+    </a>
+
+  <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink"  >
+ 	<li>
+ 	<div th:each="provincia:${map.value}" style="display:flex;margin-bottom:10px;"> 
+    <a class="dropdown-item"  th:href="@{selectprovincia/{nome}(nome=${provincia})}"  th:text="${provincia}"></a>
+    </div> 
+    </li>  
+     
+  </ul>
+  </div>
+  </div>
+  </div>
+</div>
+</body>
+</html>

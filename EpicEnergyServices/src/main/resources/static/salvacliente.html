@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="it" xmlns:th="http://www.thymeleaf.org">
+<head>
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+	crossorigin="anonymous">
+<meta charset="ISO-8859-1">
+<title>Crea Cliente</title>
+<style>
+html, body {
+	display: grid;
+	height: 100%;
+	width: 100%;
+	place-items: center;
+	background: #7EB2DD;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to top, #FFE8D4, #7EB2DD);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to top, #FFE8D4, #7EB2DD); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+::selection {
+	background: #1a75ff;
+	color: #fff;
+}
+
+.wrapper {
+	overflow: hidden;
+	max-width: 390px;
+	background: #fff;
+	padding: 30px;
+	border-radius: 15px;
+	box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.1);
+}
+
+.wrapper .title-text {
+	display: flex;
+	width: 200%;
+}
+
+.wrapper .title {
+	width: 50%;
+	font-size: 35px;
+	font-weight: 600;
+	text-align: center;
+	transition: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.wrapper .form-container {
+	width: 100%;
+	overflow: hidden;
+}
+
+.form-container .form-inner {
+	display: flex;
+	width: 200%;
+}
+
+.form-container .form-inner form {
+	width: 50%;
+	transition: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.form-inner form .field {
+	height: 50px;
+	width: 100%;
+	margin-top: 20px;
+}
+
+.form-inner form .field input {
+	height: 100%;
+	width: 100%;
+	outline: none;
+	padding-left: 15px;
+	border-radius: 15px;
+	border: 1px solid lightgrey;
+	border-bottom-width: 2px;
+	font-size: 17px;
+	transition: all 0.3s ease;
+}
+
+.form-inner form .field input:focus {
+	border-color: #1a75ff;
+	/* box-shadow: inset 0 0 3px #fb6aae; */
+}
+
+.form-inner form .field input::placeholder {
+	color: #999;
+	transition: all 0.3s ease;
+}
+
+form .field input:focus::placeholder {
+	color: #1a75ff;
+}
+
+.form-inner form .pass-link {
+	margin-top: 5px;
+}
+
+form .btn {
+	height: 100%;
+	width: 100%;
+	position: absolute;
+	background:#7EB2DD;
+	border-radius: 15px;
+	transition: all 0.4s ease;
+	border-radius: 15px;
+	position: relative;
+	overflow: hidden;
+}
+
+form .btn:hover .btn-layer {
+	left: 0;
+}
+
+label {
+	color: white;
+}
+
+h2 {
+	color: white
+}
+
+form .btn input[type="submit"] {
+	height: 100%;
+	width: 100%;
+	z-index: 1;
+	position: relative;
+	background: #7EB2DD;
+	border: none;
+	color: #fff;
+	padding-left: 0;
+	border-radius: 15px;
+	font-size: 20px;
+	font-weight: 500;
+	cursor: pointer;
+}
+</style>
+</head>
+<body>
+	<h2>Crea/Modifica cliente</h2>
+	<form action="/clientectrl/savepage" method="GET">
+			<div class="input-group mb-3">
+			<span class="input-group-text" id="basic-addon1">Ragione
+				Sociale</span> <input id="ragioneSociale"
+				placeholder="Inserisci Ragione Sociale" required type="text"
+				name="ragioneSociale" class="form-control"
+				aria-describedby="basic-addon1">
+		</div>
+		<div class="input-group mb-3">
+			<span class="input-group-text" id="basic-addon1">Tipo Cliente</span>
+			<input placeholder="Inserisci Tipo Cliente" required type="text"
+				name="tipoCliente" class="form-control"
+				aria-describedby="basic-addon1">
+		</div>
+			<div class="input-group mb-3">
+			<span class="input-group-text" id="basic-addon1">Partita Iva</span> <input
+				placeholder="Inserisci Partita Iva" required type="text"
+				name="partitaIva" class="form-control"
+				aria-describedby="basic-addon1">
+		</div>
+				<div class="input-group mb-3">
+			<span class="input-group-text" id="basic-addon1">Fatturato
+				Annuale</span> <input placeholder="Inserisci Fatturato Annuale" required
+				type="text" name="fatturatoAnnuale" class="form-control"
+				aria-describedby="basic-addon1">
+		</div>
+			<div class="input-group mb-3">
+			<span class="input-group-text" id="basic-addon1">Telefono</span> <input
+				placeholder="Inserisci telefono" required type="text"
+				name="telefono" class="form-control" aria-describedby="basic-addon1">
+		</div>
+			<div class="input-group mb-3">
+			<span class="input-group-text" id="basic-addon1">Email</span> <input
+				placeholder="Inserisci Email" required type="email" name="email"
+				class="form-control" aria-describedby="basic-addon1">
+		</div>
+			<div class="input-group mb-3">
+			<span class="input-group-text" id="basic-addon1">Pec</span> <input
+				placeholder="Inserisci Pec" required type="email" name="pec"
+				class="form-control" aria-describedby="basic-addon1">
+		</div>
+			<div class="input-group mb-3">
+			<span class="input-group-text" id="basic-addon1">Via Sede
+				Operativa</span> <input placeholder="Inserisci via Sede Operativa" required
+				type="text" name="via" class="form-control"
+				aria-describedby="basic-addon1">
+		</div>
+		<div class="input-group mb-3">
+			<span class="input-group-text" id="basic-addon1">Civico Sede
+				Operativa</span> <input placeholder="Inserisci Civico Sede Operativa"
+				required type="text" name="civico" class="form-control"
+				aria-describedby="basic-addon1">
+		</div>
+		<div class="input-group mb-3">
+			<span class="input-group-text" id="basic-addon1">Cap Sede
+				Operativa</span> <input placeholder="Inserisci cap Sede Operativa" required
+				type="text" name="cap" class="form-control"
+				aria-describedby="basic-addon1">
+		</div>
+		<div class="input-group mb-3">
+			<span class="input-group-text" id="basic-addon1">Localita Sede
+				Operativa</span> <input placeholder="Inserisci localita Sede Operativa"
+				required type="text" name="localita" class="form-control"
+				aria-describedby="basic-addon1">
+		</div>
+		<div class="input-group mb-3">
+			<span class="input-group-text" id="basic-addon1">Comune Sede
+				Operativa</span> <input placeholder="Inserisci comune Sede Operativa"
+				required type="text" name="nomeComune" class="form-control"
+				aria-describedby="basic-addon1">
+		</div>
+		<div class="input-group mb-3">
+			<span class="input-group-text" id="basic-addon1">Via Sede
+				Legale</span> <input placeholder="Inserisci via Sede Legale" required
+				type="text" name="vial" class="form-control"
+				aria-describedby="basic-addon1">
+		</div>
+		<div class="input-group mb-3">
+			<span class="input-group-text" id="basic-addon1">Civico Sede
+				Legale</span> <input placeholder="Inserisci Civico Sede Legale" required
+				type="text" name="civicol" class="form-control"
+				aria-describedby="basic-addon1">
+		</div>
+		<div class="input-group mb-3">
+			<span class="input-group-text" id="basic-addon1">Cap Sede
+				Legale</span> <input placeholder="Inserisci cap Sede Legale" required
+				type="text" name="capl" class="form-control"
+				aria-describedby="basic-addon1">
+		</div>
+		<div class="input-group mb-3">
+			<span class="input-group-text" id="basic-addon1">Localita Sede
+				Legale</span> <input placeholder="Inserisci localita Sede Legale" required
+				type="text" name="localital" class="form-control"
+				aria-describedby="basic-addon1">
+		</div>
+		<div class="input-group mb-3">
+			<span class="input-group-text" id="basic-addon1">Comune Sede
+				Legale</span> <input placeholder="Inserisci comune Sede Legale" required
+				type="text" name="nomeComunel" class="form-control"
+				aria-describedby="basic-addon1">
+		</div>
+		<div class="input-group mb-3">
+			<span class="input-group-text" id="basic-addon1">Nome Contatto</span> <input
+				id="firstName" placeholder="Inserisci Nome" required type="text"
+				name="nomeContatto" class="form-control"
+				aria-describedby="basic-addon1">
+		</div>
+		<div class="input-group mb-3">
+			<span class="input-group-text" id="basic-addon1">Cognome Contatto</span> <input
+				id="lastName" placeholder="Inserisci Cognome" required type="text"
+				name="cognomeContatto" class="form-control"
+				aria-describedby="basic-addon1">
+		</div>
+		<div class="input-group mb-3">
+			<span class="input-group-text" id="basic-addon1">Email
+				contatto</span> <input placeholder="Inserisci email contatto" required
+				type="email" name="emailContatto" class="form-control"
+				aria-describedby="basic-addon1">
+		</div>
+	
+		<div class="input-group mb-3">
+			<span class="input-group-text" id="basic-addon1">Telefono
+				Contatto</span> <input placeholder="Inserisci telefono Contatto" required
+				type="text" name="telefonoContatto" class="form-control"
+				aria-describedby="basic-addon1">
+		</div>
+		<div class="input-group mb-3">
+			<span class="input-group-text" id="basic-addon1">Data Ultimo
+				Contatto</span> <input placeholder="Inserisci Data Ultimo Contatto"
+				required type="date" name="dataUltimoContatto" class="form-control"
+				aria-describedby="basic-addon1">
+		</div>
+		<input class="btn" type="submit" style="color:white" value="Crea"
+			role="button">
+	</form>
+</body>
+</html>
