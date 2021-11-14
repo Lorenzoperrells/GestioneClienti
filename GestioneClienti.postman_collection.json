@@ -1,0 +1,895 @@
+{
+	"info": {
+		"_postman_id": "66cd087a-7524-4335-9bb2-0a180d3630d4",
+		"name": "GestioneClienti",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Provincia",
+			"item": [
+				{
+					"name": "SaveProvincia",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\":\"Milano\",\r\n    \"sigla\":\"MI\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/provinciactrl/save",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"provinciactrl",
+								"save"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\":\"Milano\",\r\n    \"sigla\":\"MI\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{Provincia}}/update/2",
+							"host": [
+								"{{Provincia}}"
+							],
+							"path": [
+								"update",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Remove",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{Provincia}}delete/3",
+							"host": [
+								"{{Provincia}}delete"
+							],
+							"path": [
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PopolaProvincia.csv",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": null
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Comune",
+			"item": [
+				{
+					"name": "SaveComune",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\":\"Navigli\",\r\n\"provincia\":{\r\n    \"id\":\"1\",\r\n    \"nome\":\"Milano\",\r\n    \"sigla\":\"MI\"\r\n}\r\n\r\n\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/comunectrl/save",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"comunectrl",
+								"save"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\":\"Parioli\",\r\n\"provincia\":{\r\n    \"id\":\"2\",\r\n    \"nome\":\"Roma\",\r\n    \"sigla\":\"RM\"\r\n}\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{Comune}}/update/3",
+							"host": [
+								"{{Comune}}"
+							],
+							"path": [
+								"update",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Remove",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{Comune}}/delete/2",
+							"host": [
+								"{{Comune}}"
+							],
+							"path": [
+								"delete",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PopolaComuni.csv",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": null
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Indirizzo",
+			"item": [
+				{
+					"name": "SaveIndirizzo",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\"via\":\"via duomo\",\r\n\"civico\":\"29\",\r\n\"cap\":\"000298\",\r\n\"localita\":\"mare\",\r\n\"comune\":{\r\n    \"id\":\"2\",\r\n    \"nome\":\"Navigli\",\r\n    \"provincia\":{\r\n        \"id\":\"1\",\r\n        \"nome\":\"Milano\",\r\n        \"sigla\":\"MI\"\r\n    }\r\n}\r\n\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/indirizzoctrl/save",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"indirizzoctrl",
+								"save"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\"via\":\"via parioli\",\r\n\"civico\":\"23\",\r\n\"cap\":\"000298\",\r\n\"localita\":\"mare\",\r\n\"comune\":{\r\n    \"id\":\"1\",\r\n    \"nome\":\"Navigli\",\r\n    \"provincia\":{\r\n        \"id\":\"1\",\r\n        \"nome\":\"Milano\",\r\n        \"sigla\":\"MI\"\r\n    }\r\n}\r\n\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{Indirizzo}}/update/3",
+							"host": [
+								"{{Indirizzo}}"
+							],
+							"path": [
+								"update",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Remove",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": null
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "StatoFattura",
+			"item": [
+				{
+					"name": "SaveStatoFattura",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\":\"Da Saldare\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/statofatturactrl/save",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"statofatturactrl",
+								"save"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\":\"DA SALDARE\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{StatoFattura}}/update/2",
+							"host": [
+								"{{StatoFattura}}"
+							],
+							"path": [
+								"update",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Remove",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": null
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Fattura",
+			"item": [
+				{
+					"name": "SaveFattura",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/fatturactrl/save",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"fatturactrl",
+								"save"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"data\":\"2021-11-08\",\r\n    \"numero\":\"1\",\r\n    \"anno\":\"2021\",\r\n    \"importo\":\"1300.00\",\r\n    \"stato\":{\r\n        \"id\":\"1\",\r\n        \"nome\":\"SALDATO\"\r\n    },\r\n    \"cliente\":{\r\n        \"id\":\"3\",\r\n        \"ragioneSociale\":\"Acea\",\r\n\"partitaIva\":\"10201230301\",\r\n\"tipoCliente\":\"PA\",\r\n\"email\":\"l@gmail.it\",\r\n\"pec\":\"l@gmail.com\",\r\n\"telefono\":\"03829832\",\r\n\"nomeContatto\":\"lo\",\r\n\"cognomeContatto\":\"pe\",\r\n\"telefonoContatto\":\"34539489234\",\r\n\"emailContatto\":\"acea@gm.it\",\r\n\"indirizzoSedeOperativa\":{\r\n\"id\":\"1\",\r\n \"via\":\"via duomo\",\r\n\"civico\":\"29\",\r\n\"cap\":\"000298\",\r\n\"localita\":\"mare\",\r\n\"comune\":{\r\n    \"id\":\"1\",\r\n    \"nome\":\"Navigli\",\r\n    \"provincia\":{\r\n        \"id\":\"1\",\r\n        \"nome\":\"Milano\",\r\n        \"sigla\":\"MI\"\r\n    }\r\n}\r\n},\r\n\"indirizzoSedeLegale\":{\r\n \"id\":\"1\",\r\n \"via\":\"via duomo\",\r\n\"civico\":\"29\",\r\n\"cap\":\"000298\",\r\n\"localita\":\"mare\",\r\n\"comune\":{\r\n    \"id\":\"1\",\r\n    \"nome\":\"Navigli\",\r\n    \"provincia\":{\r\n        \"id\":\"1\",\r\n        \"nome\":\"Milano\",\r\n        \"sigla\":\"MI\"\r\n    }\r\n}\r\n},\r\n\"dataInserimento\":\"2021-05-17\",\r\n\"dataUltimoContatto\":\"2021-04-18\",\r\n\"fatturatoAnnuale\":\"3000.45\"\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{Fattura}}/update/2",
+							"host": [
+								"{{Fattura}}"
+							],
+							"path": [
+								"update",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Remove",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{Fattura}}/delete/2",
+							"host": [
+								"{{Fattura}}"
+							],
+							"path": [
+								"delete",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getByRagioneSociale",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{Fattura}}/getbycliente?cliente=Acea",
+							"host": [
+								"{{Fattura}}"
+							],
+							"path": [
+								"getbycliente"
+							],
+							"query": [
+								{
+									"key": "cliente",
+									"value": "Acea"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getByStato",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{Fattura}}/getbystato?stato=SALDATO",
+							"host": [
+								"{{Fattura}}"
+							],
+							"path": [
+								"getbystato"
+							],
+							"query": [
+								{
+									"key": "stato",
+									"value": "SALDATO"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getByData",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{Fattura}}/getbydata?data=2021-11-08",
+							"host": [
+								"{{Fattura}}"
+							],
+							"path": [
+								"getbydata"
+							],
+							"query": [
+								{
+									"key": "data",
+									"value": "2021-11-08"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getByAnno",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{Fattura}}/getbyanno?anno=2021",
+							"host": [
+								"{{Fattura}}"
+							],
+							"path": [
+								"getbyanno"
+							],
+							"query": [
+								{
+									"key": "anno",
+									"value": "2021"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getByRangeImporto",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{Fattura}}/getbyrangeimporto?minimo=100&massimo=3000",
+							"host": [
+								"{{Fattura}}"
+							],
+							"path": [
+								"getbyrangeimporto"
+							],
+							"query": [
+								{
+									"key": "minimo",
+									"value": "100"
+								},
+								{
+									"key": "massimo",
+									"value": "3000"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Cliente",
+			"item": [
+				{
+					"name": "SaveCliente",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "edefd8b1-35ef-4d21-86a3-6fdad2cb7f67",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\"ragioneSociale\":\"Acea\",\r\n\"partitaIva\":\"10201230301\",\r\n\"tipoCliente\":\"PA\",\r\n\"email\":\"l@gmail.it\",\r\n\"pec\":\"l@gmail.com\",\r\n\"telefono\":\"03829832\",\r\n\"nomeContatto\":\"lollo\",\r\n\"cognomeContatto\":\"pe\",\r\n\"telefonoContatto\":\"34539489234\",\r\n\"emailContatto\":\"acea@gm.it\",\r\n\"indirizzoSedeOperativa\":{\r\n\"id\":\"1\",\r\n \"via\":\"via duomo\",\r\n\"civico\":\"29\",\r\n\"cap\":\"000298\",\r\n\"localita\":\"mare\",\r\n\"comune\":{\r\n    \"id\":\"1\",\r\n    \"nome\":\"Navigli\",\r\n    \"provincia\":{\r\n        \"id\":\"1\",\r\n        \"nome\":\"Milano\",\r\n        \"sigla\":\"MI\"\r\n    }\r\n}\r\n},\r\n\"indirizzoSedeLegale\":{\r\n \"id\":\"1\",\r\n \"via\":\"via duomo\",\r\n\"civico\":\"29\",\r\n\"cap\":\"000298\",\r\n\"localita\":\"mare\",\r\n\"comune\":{\r\n    \"id\":\"1\",\r\n    \"nome\":\"Navigli\",\r\n    \"provincia\":{\r\n        \"id\":\"1\",\r\n        \"nome\":\"Milano\",\r\n        \"sigla\":\"MI\"\r\n    }\r\n}\r\n},\r\n\"dataInserimento\":\"2021-05-17\",\r\n\"dataUltimoContatto\":\"2021-04-18\",\r\n\"fatturatoAnnuale\":\"2000.45\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{Cliente}}/save",
+							"host": [
+								"{{Cliente}}"
+							],
+							"path": [
+								"save"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\"ragioneSociale\":\"Ama\",\r\n\"partitaIva\":\"10201230301\",\r\n\"tipoCliente\":\"PA\",\r\n\"email\":\"l@gmail.it\",\r\n\"pec\":\"l@gmail.com\",\r\n\"telefono\":\"03829832\",\r\n\"nomeContatto\":\"lo\",\r\n\"cognomeContatto\":\"pe\",\r\n\"telefonoContatto\":\"34539489234\",\r\n\"emailContatto\":\"acea@gm.it\",\r\n\"indirizzoSedeOperativa\":{\r\n\"id\":\"1\",\r\n \"via\":\"via duomo\",\r\n\"civico\":\"29\",\r\n\"cap\":\"000298\",\r\n\"localita\":\"mare\",\r\n\"comune\":{\r\n    \"id\":\"1\",\r\n    \"nome\":\"Navigli\",\r\n    \"provincia\":{\r\n        \"id\":\"1\",\r\n        \"nome\":\"Milano\",\r\n        \"sigla\":\"MI\"\r\n    }\r\n}\r\n},\r\n\"indirizzoSedeLegale\":{\r\n \"id\":\"1\",\r\n \"via\":\"via duomo\",\r\n\"civico\":\"29\",\r\n\"cap\":\"000298\",\r\n\"localita\":\"mare\",\r\n\"comune\":{\r\n    \"id\":\"1\",\r\n    \"nome\":\"Navigli\",\r\n    \"provincia\":{\r\n        \"id\":\"1\",\r\n        \"nome\":\"Milano\",\r\n        \"sigla\":\"MI\"\r\n    }\r\n}\r\n},\r\n\"dataInserimento\":\"2021-05-17\",\r\n\"dataUltimoContatto\":\"2021-04-18\",\r\n\"fatturatoAnnuale\":\"2000.45\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{Cliente}}/update/3",
+							"host": [
+								"{{Cliente}}"
+							],
+							"path": [
+								"update",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Remove",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{Cliente}}/delete/4",
+							"host": [
+								"{{Cliente}}"
+							],
+							"path": [
+								"delete",
+								"4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PageOrderByRagioneSociale",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{Cliente}}/getorder?page=0&size=5&sort=NomeContatto",
+							"host": [
+								"{{Cliente}}"
+							],
+							"path": [
+								"getorder"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "0"
+								},
+								{
+									"key": "size",
+									"value": "5"
+								},
+								{
+									"key": "sort",
+									"value": "NomeContatto"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PageOrderByFatturatoAnnuale",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{Cliente}}/getorder?page=0&size=5&sort=FatturatoAnnuale",
+							"host": [
+								"{{Cliente}}"
+							],
+							"path": [
+								"getorder"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "0"
+								},
+								{
+									"key": "size",
+									"value": "5"
+								},
+								{
+									"key": "sort",
+									"value": "FatturatoAnnuale"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "OrderByDataInserimento",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{Cliente}}/getorder?page=0&size=5&sort=DataInserimento",
+							"host": [
+								"{{Cliente}}"
+							],
+							"path": [
+								"getorder"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "0"
+								},
+								{
+									"key": "size",
+									"value": "5"
+								},
+								{
+									"key": "sort",
+									"value": "DataInserimento"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PageOrderByDataUltimoContatto",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{Cliente}}/getorder?page=0&size=5&sort=DataUltimoContatto",
+							"host": [
+								"{{Cliente}}"
+							],
+							"path": [
+								"getorder"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "0"
+								},
+								{
+									"key": "size",
+									"value": "5"
+								},
+								{
+									"key": "sort",
+									"value": "DataUltimoContatto"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PageOrderByProvincia",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{Cliente}}/getorder?page=0&size=5&sort=indirizzoSedeLegale.comune.provincia",
+							"host": [
+								"{{Cliente}}"
+							],
+							"path": [
+								"getorder"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "0"
+								},
+								{
+									"key": "size",
+									"value": "5"
+								},
+								{
+									"key": "sort",
+									"value": "indirizzoSedeLegale.comune.provincia"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getByFatturato",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": null
+					},
+					"response": []
+				},
+				{
+					"name": "getByDataUltimoContatto",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": null
+					},
+					"response": []
+				},
+				{
+					"name": "getByDataInserimento",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{Cliente}}/getbydatainserimento?dataInserimento=2021-05-17",
+							"host": [
+								"{{Cliente}}"
+							],
+							"path": [
+								"getbydatainserimento"
+							],
+							"query": [
+								{
+									"key": "dataInserimento",
+									"value": "2021-05-17"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getByParteDelNome",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": null
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "SaveUser",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\":\"Lorenz\",\r\n    \"email\":\"lorenzo@gmail.com\",\r\n    \"password\":\"ajsisjao\",\r\n    \"nome\":\"Lorenz\",\r\n    \"cognome\":\"Perrell\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{User}}/save",
+							"host": [
+								"{{User}}"
+							],
+							"path": [
+								"save"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "SignupUser",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\":\"Lorenzano\",\r\n    \"email\":\"lorenzano@gmail.com\",\r\n    \"password\":\"3838493\",\r\n    \"nome\":\"Lorenz\",\r\n    \"cognome\":\"Perrell\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/signup",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"signup"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\":\"Lorenzano\",\r\n    \"password\":\"3838493\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
