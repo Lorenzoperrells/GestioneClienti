@@ -72,6 +72,7 @@ public class ClienteController {
 		Indirizzo il=new Indirizzo(vial,civicol,capl,localital,cs.getBynome(nomeComunel));
 		indirizzo.save(il);
 		}
+		
 		c.setDataInserimento(LocalDate.now());
 		c.setCognomeContatto(cognomeContatto);
 		c.setDataUltimoContatto(dataUltimoContatto);
@@ -87,7 +88,12 @@ public class ClienteController {
 		c.setTelefono(telefono);
 		c.setTelefonoContatto(telefonoContatto);
 		c.setTipoCliente(tipoCliente);
-		service.save(c);
+		if(service.existsByRagioneSociale(ragioneSociale)) {
+			service.update(service.getByRagioneSociale(ragioneSociale).getId(), c);
+		}
+		else{ 
+			service.save(c);
+		}
 		ModelAndView myModel=new ModelAndView();
 		myModel.addObject("cliente",c);
 		myModel.setViewName("clientedetails");
@@ -95,8 +101,8 @@ public class ClienteController {
 	}
 
 	@GetMapping("/delete")
-	public void remove(@RequestParam Long id) {
-		service.remove(id);
+	public void remove(@RequestParam String ragioneSociale) {
+		service.remove(service.getByRagioneSociale(ragioneSociale).getId());
 	}
 
 	@GetMapping(value = "/getorder", produces = MediaType.APPLICATION_JSON_VALUE)

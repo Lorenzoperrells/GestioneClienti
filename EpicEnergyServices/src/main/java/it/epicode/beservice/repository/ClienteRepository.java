@@ -31,4 +31,5 @@ public interface ClienteRepository extends JpaRepository<Cliente,Long> {
 	public List<Cliente> getClienteByProvincia(String nome);
 	@Query("SELECT c FROM Cliente c WHERE c.fatturatoAnnuale BETWEEN :minimo AND :massimo ORDER BY c.fatturatoAnnuale DESC")
 	public List<Cliente> getByRangeFatturatoAnnualeOrderByFatturatoAnnuale(double minimo, double massimo, Pageable pag);
+	public Boolean existsByRagioneSociale(String ragioneSociale);
 }	

@@ -52,6 +52,9 @@ public class ClienteService {
 	            return new ArrayList<Cliente>();
 	        }
 	    }
+	 public Cliente getByRagioneSociale(String ragioneSociale) {
+		 return clienteRepository.getByRagioneSociale(ragioneSociale);
+	 }
 	 public List<Cliente> getByFatturato(Double fatturato,Pageable pageable){
 		 return clienteRepository.getByFatturato(fatturato,pageable);
 	 }
@@ -81,6 +84,9 @@ public class ClienteService {
 	}
 	public List<Cliente> getByRangeFatturatoAnnualeOrderByFatturatoAnnuale(double minimo, double massimo, Pageable pag) {
 		return clienteRepository.getByRangeFatturatoAnnualeOrderByFatturatoAnnuale(minimo,massimo,pag);
+	}
+	public Boolean existsByRagioneSociale(String ragioneSociale) {
+		return clienteRepository.existsByRagioneSociale(ragioneSociale);
 	}
     
 }
