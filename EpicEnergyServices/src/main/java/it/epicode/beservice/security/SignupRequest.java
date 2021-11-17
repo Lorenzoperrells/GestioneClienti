@@ -56,6 +56,7 @@ public class SignupRequest {
 		this.nome = nome;
 		this.cognome = cognome;
 	}
+	public SignupRequest() {}
 	public String getPassword() {
 		return password;
 	}
